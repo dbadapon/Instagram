@@ -19,7 +19,8 @@ class PostCell: UITableViewCell {
     
     var postImage: PFObject! {
         didSet {
-            self.postImageView.file = postImage["media"] as? PFFile
+            let file = postImage["media"] as? PFFile
+            self.postImageView.file = file
             self.postImageView.loadInBackground()
         }
     }

@@ -10,7 +10,6 @@ import UIKit
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
