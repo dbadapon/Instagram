@@ -9,9 +9,40 @@
 import UIKit
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+  
+    @IBAction func uploadButton(_ sender: Any) {
+        takeOrPickPhoto()
+    }
+    
+    
+    //var originalImage: UIImage
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let vc = UIImagePickerController()
+        takeOrPickPhoto()
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        // Get the image captured by the UIImagePickerController
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        // Do something with the images (based on your use case)
+        
+        // Dismiss UIImagePickerController to go back to your original view controller
+        dismiss(animated: true, completion: nil)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func takeOrPickPhoto() {
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
@@ -25,18 +56,10 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
             vc.sourceType = .photoLibrary
         }
         
-//        vc.sourceType = UIImagePickerControllerSourceType.camera
+        //        vc.sourceType = UIImagePickerControllerSourceType.camera
         self.present(vc, animated: true, completion: nil)
-
-
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
