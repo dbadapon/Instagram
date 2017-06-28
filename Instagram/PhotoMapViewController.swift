@@ -34,6 +34,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
+        photoImageView.image = originalImage
     }
 
     override func didReceiveMemoryWarning() {
