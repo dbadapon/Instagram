@@ -173,7 +173,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qXc-nq-1ls">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="EOD-Y9-p91" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="EOD-Y9-p91" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ocv-EN-xqG">
                         <autoresizingMask key="autoresizingMask"/>
@@ -189,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="1205.5999999999999" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Map View Controller-->
         <scene sceneID="tNm-Yr-m6x">
             <objects>
-                <viewController id="aC6-Zd-U2d" sceneMemberID="viewController">
+                <viewController id="aC6-Zd-U2d" customClass="PhotoMapViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bmr-kQ-wbC"/>
                         <viewControllerLayoutGuide type="bottom" id="NSl-n9-Ew7"/>

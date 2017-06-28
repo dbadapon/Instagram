@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let currentUser = PFUser.current() { // if the current user != nil + set currentUser to the current user
             print("Welcome back, \(currentUser.username!)")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let feedViewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController")
+            let feedViewController = storyboard.instantiateViewController(withIdentifier: "mainTabBarController")
             window?.rootViewController = feedViewController // where did window come from???
         }
         
