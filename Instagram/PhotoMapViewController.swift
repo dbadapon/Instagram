@@ -66,6 +66,8 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // Do something with the images (based on your use case)
         
+        UIImageJPEGRepresentation(originalImage, 0.2)
+        
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
         photoImageView.image = originalImage
@@ -107,6 +109,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         self.present(vc, animated: true, completion: nil)
         
     }
+
 
 
     /*

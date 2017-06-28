@@ -31,6 +31,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         postTableView.dataSource = self
         postTableView.delegate = self
         
+//        let refreshControl = UIRefreshControl()
+        
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
         
     }
