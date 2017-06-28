@@ -31,7 +31,11 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         postTableView.dataSource = self
         postTableView.delegate = self
         
-//        let refreshControl = UIRefreshControl()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        postTableView.insertSubview(refreshControl, at: 0)
+        
+        
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
         
@@ -57,6 +61,11 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 print(error!.localizedDescription)
             }
         }
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        queryParse()
+        refreshControl.endRefreshing()
     }
     
     
