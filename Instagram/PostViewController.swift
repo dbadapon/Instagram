@@ -15,12 +15,12 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var postTableView: UITableView!
     
     
-    @IBAction func testLogout(_ sender: UIButton) {
-        PFUser.logOutInBackground { (error: Error?) in
-            // logOutInBackgroundow be nil
-        }
-        self.performSegue(withIdentifier: "testLogoutSegue", sender: nil)
-    }
+//    @IBAction func testLogout(_ sender: UIButton) {
+//        PFUser.logOutInBackground { (error: Error?) in
+//            // logOutInBackgroundow be nil
+//        }
+//        self.performSegue(withIdentifier: "testLogoutSegue", sender: nil)
+//    }
 
 
     override func viewDidLoad() {

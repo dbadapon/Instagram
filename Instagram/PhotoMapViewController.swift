@@ -10,11 +10,46 @@ import UIKit
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    
     @IBOutlet weak var photoImageView: UIImageView!
     
+    @IBOutlet weak var captionField: UITextField!
+    
+    //do you really need these...???
+    var postPhoto: UIImage!
+    var postCaption: String!
   
-    @IBAction func uploadButton(_ sender: Any) {
-        takeOrPickPhoto()
+    
+    @IBAction func chosePhotoButton(_ sender: UIButton) {
+        pickPhoto()
+    }
+    
+    
+    @IBAction func cameraButton(_ sender: UIButton) {
+        takePhoto()
+    }
+    
+    
+    
+    @IBAction func submitPost(_ sender: UIButton) {
+        //make sure you handle the case where the user has not selected/taken a photo...what should you do in that case?
+        // maybe you could show a notification or something...
+//        postPhoto = photoImageView
+        
+        Post.postUserImage(image: photoImageView.image, withCaption: captionField.text, withCompletion: {(success, error) in
+            if success {
+                print("I think you posted something?")
+            }
+            else{
+                print(error?.localizedDescription)
+            }
+        })
+        
     }
     
     
@@ -22,8 +57,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vc = UIImagePickerController()
-        takeOrPickPhoto()
+        pickPhoto()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
@@ -43,7 +77,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     
-    func takeOrPickPhoto() {
+    func takePhoto() {
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
@@ -59,6 +93,19 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         //        vc.sourceType = UIImagePickerControllerSourceType.camera
         self.present(vc, animated: true, completion: nil)
+    }
+    
+
+    
+    func pickPhoto() {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        
+        vc.sourceType = .photoLibrary
+    
+        self.present(vc, animated: true, completion: nil)
+        
     }
 
 
