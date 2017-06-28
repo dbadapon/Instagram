@@ -13,6 +13,9 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     
     @IBOutlet weak var postTableView: UITableView!
+
+    
+    var allPosts: [PFObject] = []
     
     
 //    @IBAction func testLogout(_ sender: UIButton) {
@@ -26,7 +29,9 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         postTableView.dataSource = self
-        postTableView.delegate = self // what is this tho...
+        postTableView.delegate = self
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
         
     }
 
@@ -36,14 +41,38 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
+    func queryParse() {
+        let query = PFQuery(className: "Post")
+        query.addDescendingOrder("createdAt")
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let posts = posts {
+                self.allPosts = posts
+                self.postTableView.reloadData()
+            }
+            else {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return allPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = postTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell // so what is indexPath, anyway?
+        let cell = postTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        
+        cell.postImage = allPosts[indexPath.row]
+
+        let caption = (allPosts[indexPath.row]["caption"] ?? "") as! String
+        
+        cell.captionLabel.text = caption
+    
         return cell
     }
+    
+    
     
 
     /*
