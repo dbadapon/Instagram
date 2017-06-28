@@ -44,6 +44,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func queryParse() {
         let query = PFQuery(className: "Post")
         query.addDescendingOrder("createdAt")
+        query.limit = 20
+        
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts {
                 self.allPosts = posts
