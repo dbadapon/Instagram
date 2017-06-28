@@ -7,17 +7,35 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class PostDetailsViewController: UIViewController {
     
-//    @IBOutlet weak var image: PFImageView!
+    @IBOutlet weak var image: PFImageView!
+    @IBOutlet weak var captionLabel: UILabel!
+    
+    var post: PFObject!
+    
+//        {
+//        didSet {
+//            let file = post["media"] as? PFFile
+//            self.image.file = file
+//            self.image.loadInBackground()
+//            
+//        }
+//    }
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if let post = post {
+            captionLabel.text = post["caption"] as? String
+            let file = post["media"] as? PFFile
+            image.file = file
+            self.image.loadInBackground()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +44,7 @@ class PostDetailsViewController: UIViewController {
     }
     
 
-    /*
+/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -34,6 +52,6 @@ class PostDetailsViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+*/
 
 }

@@ -16,6 +16,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
     
     
     
