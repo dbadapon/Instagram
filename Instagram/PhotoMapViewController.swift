@@ -22,14 +22,14 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     //do you really need these...???
     var postPhoto: UIImage!
     var postCaption: String!
+    
+    
+    @IBAction func uploadPhotoButton(_ sender: UIButton) {
+        pickPhoto()
+    }
   
     
-    @IBAction func chosePhotoButton(_ sender: UIButton) {
-        pickPhoto()
-        
-    }
-    
-    
+
     @IBAction func cameraButton(_ sender: UIButton) {
         takePhoto()
     }
@@ -41,16 +41,19 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         // maybe you could show a notification or something...
 //        postPhoto = photoImageView
         
-        Post.postUserImage(image: photoImageView.image, withCaption: captionField.text, withCompletion: {(success, error) in
-            if success {
-                print("I think you posted something?")
-            }
-            else{
-                print(error?.localizedDescription)
-            }
-        })
-        captionField.text = ""
-        tabBarController?.selectedIndex = 0
+        if photoImageView.image != nil {
+            Post.postUserImage(image: photoImageView.image, withCaption: captionField.text, withCompletion: {(success, error) in
+                if success {
+                    print("I think you posted something?")
+                }
+                else{
+                    print(error?.localizedDescription)
+                }
+            })
+            captionField.text = ""
+            tabBarController?.selectedIndex = 0
+        }
+        
         
     }
     

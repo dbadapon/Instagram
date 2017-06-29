@@ -12,7 +12,7 @@ import Parse
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var profileCollectionView: UICollectionView!
-    
+    @IBOutlet weak var usernameLabel: UILabel!
     
     var allPosts: [PFObject] = []
     
@@ -33,6 +33,10 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         profileCollectionView.dataSource = self
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
+        
+        if PFUser.current() != nil {
+            usernameLabel.text = PFUser.current()?.username
+        }
         
         let layout = profileCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
 //        layout.minimumInteritemSpacing = 1
@@ -72,6 +76,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
         
         cell.profileImage = allPosts[indexPath.row]
+        
         
         
 //        let post = allPosts[indexPath.item]

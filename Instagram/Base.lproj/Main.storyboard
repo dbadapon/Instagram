@@ -78,7 +78,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2630" y="-443"/>
+            <point key="canvasLocation" x="1153" y="-866"/>
         </scene>
         <!--Instagram-->
         <scene sceneID="i39-Ag-axx">
@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NrB-Ua-PnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1295" y="975"/>
+            <point key="canvasLocation" x="-1039" y="975"/>
         </scene>
         <!--Post Details-->
         <scene sceneID="oTI-ik-iZh">
@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53E-Gq-GaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="1839"/>
+            <point key="canvasLocation" x="-327" y="1810"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qXc-nq-1ls">
@@ -233,7 +233,7 @@
             </objects>
             <point key="canvasLocation" x="1154" y="-85"/>
         </scene>
-        <!--Photo Map View Controller-->
+        <!--Post a Photo-->
         <scene sceneID="tNm-Yr-m6x">
             <objects>
                 <viewController id="aC6-Zd-U2d" customClass="PhotoMapViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -245,42 +245,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hT6-sT-CZu">
+                                <rect key="frame" x="16" y="84" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80938179072938432" green="0.80938179072938432" blue="0.80938179072938432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Tap to upload">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadPhotoButton:" destination="aC6-Zd-U2d" eventType="touchUpInside" id="AW9-Il-am8"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TVi-oK-erW">
-                                <rect key="frame" x="87" y="72" width="200" height="200"/>
+                                <rect key="frame" x="16" y="84" width="125" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Tap"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78K-LR-54t">
-                                <rect key="frame" x="16" y="330" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMc-Dl-Nph">
-                                <rect key="frame" x="87" y="280" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Library"/>
-                                <connections>
-                                    <action selector="chosePhotoButton:" destination="aC6-Zd-U2d" eventType="touchUpInside" id="MHz-2i-1Dk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu6-bw-hwb">
-                                <rect key="frame" x="233" y="280" width="54" height="30"/>
+                                <rect key="frame" x="51" y="217" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
                                     <action selector="cameraButton:" destination="aC6-Zd-U2d" eventType="touchUpInside" id="zYD-m3-8eY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbE-od-6JC">
-                                <rect key="frame" x="163" y="388" width="49" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78K-LR-54t">
+                                <rect key="frame" x="149" y="95" width="191" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitPost:" destination="aC6-Zd-U2d" eventType="touchUpInside" id="XXP-Se-n01"/>
-                                </connections>
-                            </button>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -288,7 +283,18 @@
                             <outletCollection property="gestureRecognizers" destination="W2N-mB-LLX" appends="YES" id="3UX-PT-hy1"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="zRM-GJ-2wO"/>
+                    <navigationItem key="navigationItem" title="Post a Photo" id="zRM-GJ-2wO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="QO2-oR-A5O">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fbE-od-6JC">
+                                <rect key="frame" x="319" y="7" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="submitPost:" destination="aC6-Zd-U2d" eventType="touchUpInside" id="XXP-Se-n01"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="captionField" destination="78K-LR-54t" id="jwc-KW-fwm"/>
                         <outlet property="photoImageView" destination="TVi-oK-erW" id="0lB-jG-jge"/>
@@ -301,7 +307,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-246" y="975"/>
+            <point key="canvasLocation" x="1948" y="974.6626686656673"/>
         </scene>
         <!--Profile-->
         <scene sceneID="62a-FM-OZa">
@@ -327,7 +333,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0S5-zn-axx">
                                 <rect key="frame" x="16" y="77" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -368,12 +374,13 @@
                     <navigationItem key="navigationItem" title="Profile" id="f5M-yh-o6G"/>
                     <connections>
                         <outlet property="profileCollectionView" destination="kum-Th-ezZ" id="pHu-N6-TbQ"/>
+                        <outlet property="usernameLabel" destination="0S5-zn-axx" id="xa7-4A-BMO"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="s69-5X-sji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9a-Hc-2IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2953" y="975"/>
+            <point key="canvasLocation" x="393" y="975"/>
         </scene>
         <!--Capture-->
         <scene sceneID="5Ka-lj-16S">
@@ -392,7 +399,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hst-Am-ktF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1033" y="975"/>
+            <point key="canvasLocation" x="1153" y="975"/>
         </scene>
         <!--Profile-->
         <scene sceneID="9Fp-gL-Txq">
@@ -411,7 +418,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cx-FY-7Kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2134" y="975"/>
+            <point key="canvasLocation" x="-327" y="975"/>
         </scene>
         <!--Home-->
         <scene sceneID="qdB-c7-6ki">
@@ -430,7 +437,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zg2-df-Znl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="975"/>
+            <point key="canvasLocation" x="-1737" y="975"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
