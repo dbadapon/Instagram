@@ -17,13 +17,6 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var allPosts: [PFObject] = []
     
-    
-//    @IBAction func testLogout(_ sender: UIButton) {
-//        PFUser.logOutInBackground { (error: Error?) in
-//            // logOutInBackgroundow be nil
-//        }
-//        self.performSegue(withIdentifier: "testLogoutSegue", sender: nil)
-//    }
 
 
     override func viewDidLoad() {
@@ -36,20 +29,15 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         postTableView.insertSubview(refreshControl, at: 0)
         
         
-        
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     func queryParse() {
         let query = PFQuery(className: "Post")
         query.addDescendingOrder("createdAt")
+        query.includeKey("author")
         query.limit = 20
         
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
@@ -82,11 +70,21 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.captionLabel.text = caption
     
+        
+        let user = allPosts[indexPath.row]["author"] as! PFUser
+        cell.topUserLabel.text = user.username!
+        cell.bottomUserLabel.text = cell.topUserLabel.text
+
+    
         return cell
     }
     
     
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
 
     // MARK: - Navigation

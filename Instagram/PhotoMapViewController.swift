@@ -26,6 +26,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func chosePhotoButton(_ sender: UIButton) {
         pickPhoto()
+        
     }
     
     
@@ -48,6 +49,8 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
                 print(error?.localizedDescription)
             }
         })
+        captionField.text = ""
+        tabBarController?.selectedIndex = 0
         
     }
     

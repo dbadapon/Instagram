@@ -12,10 +12,11 @@ import ParseUI
 
 class PostCell: UITableViewCell {
 
+    @IBOutlet weak var postImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
-    @IBOutlet weak var postImageView: PFImageView!
-    
+    @IBOutlet weak var topUserLabel: UILabel!
+    @IBOutlet weak var bottomUserLabel: UILabel!
     
     var postImage: PFObject! {
         didSet {

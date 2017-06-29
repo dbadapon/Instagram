@@ -13,26 +13,36 @@ import ParseUI
 class PostDetailsViewController: UIViewController {
     
     @IBOutlet weak var image: PFImageView!
+    
+    @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
+    
     
     var post: PFObject!
-    
-//        {
-//        didSet {
-//            let file = post["media"] as? PFFile
-//            self.image.file = file
-//            self.image.loadInBackground()
-//            
-//        }
-//    }
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        if let date = post.createdAt { // have to do the same with username :o
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .short
+            let dateString = dateFormatter.string(from: date)
+            timestampLabel.text = dateString
+        }
+    
+        
         if let post = post {
+            let user = post["author"] as! PFUser
+            userLabel.text = user.username!
+
             captionLabel.text = post["caption"] as? String
             let file = post["media"] as? PFFile
+            
             image.file = file
             self.image.loadInBackground()
         }

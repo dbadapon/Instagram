@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-//                print("Ya logged in!")
+                print("Ya logged in!")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil) // what is sender and why is it nil?
             }
         }
