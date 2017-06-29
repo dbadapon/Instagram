@@ -78,7 +78,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="265.5" y="165.5"/>
+            <point key="canvasLocation" x="2630" y="-443"/>
         </scene>
         <!--Instagram-->
         <scene sceneID="i39-Ag-axx">
@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NrB-Ua-PnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3068" y="165.06746626686657"/>
+            <point key="canvasLocation" x="1295" y="975"/>
         </scene>
         <!--Post Details-->
         <scene sceneID="oTI-ik-iZh">
@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53E-Gq-GaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3888.8000000000002" y="164.16791604197903"/>
+            <point key="canvasLocation" x="2135" y="1839"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qXc-nq-1ls">
@@ -231,7 +231,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqB-e5-p20" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="166"/>
+            <point key="canvasLocation" x="1154" y="-85"/>
         </scene>
         <!--Photo Map View Controller-->
         <scene sceneID="tNm-Yr-m6x">
@@ -301,7 +301,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2144.8000000000002" y="948.57571214392806"/>
+            <point key="canvasLocation" x="-246" y="975"/>
         </scene>
         <!--Profile-->
         <scene sceneID="62a-FM-OZa">
@@ -357,6 +357,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="profileImageView" destination="MM8-7f-qXU" id="YFQ-bI-mqD"/>
+                                            <segue destination="31q-ge-V80" kind="show" id="fZt-Is-Oh7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -372,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9a-Hc-2IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-514.39999999999998" y="948.57571214392806"/>
+            <point key="canvasLocation" x="2953" y="975"/>
         </scene>
         <!--Capture-->
         <scene sceneID="5Ka-lj-16S">
@@ -391,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hst-Am-ktF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="949"/>
+            <point key="canvasLocation" x="-1033" y="975"/>
         </scene>
         <!--Profile-->
         <scene sceneID="9Fp-gL-Txq">
@@ -410,7 +411,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cx-FY-7Kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1418" y="949"/>
+            <point key="canvasLocation" x="2134" y="975"/>
         </scene>
         <!--Home-->
         <scene sceneID="qdB-c7-6ki">
@@ -429,7 +430,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zg2-df-Znl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="166"/>
+            <point key="canvasLocation" x="577" y="975"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fZt-Is-Oh7"/>
+    </inferredMetricsTieBreakers>
 </document>
