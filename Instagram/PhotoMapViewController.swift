@@ -51,6 +51,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
                 }
             })
             captionField.text = ""
+            photoImageView.image = nil
             tabBarController?.selectedIndex = 0
         }
         

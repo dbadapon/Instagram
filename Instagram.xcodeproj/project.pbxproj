@@ -118,7 +118,6 @@
 			children = (
 				A04146AD1F01C5CA00504B0D /* LoginViewController.swift */,
 				A02DC8A11F03114C0050D084 /* PostViewController.swift */,
-				A02DC8AB1F0321C30050D084 /* ProfileViewController.swift */,
 				A02DC8AD1F0328520050D084 /* PhotoMapViewController.swift */,
 				A080C8771F04689200ECA2CE /* PostDetailsViewController.swift */,
 			);
@@ -172,6 +171,7 @@
 				A02DC8A31F0311590050D084 /* ViewControllers */,
 				A040B0CC1F01BAB2001BE3E1 /* AppDelegate.swift */,
 				A040B0D01F01BAB2001BE3E1 /* Main.storyboard */,
+				A02DC8AB1F0321C30050D084 /* ProfileViewController.swift */,
 				A040B0D31F01BAB2001BE3E1 /* Assets.xcassets */,
 				A040B0D51F01BAB2001BE3E1 /* LaunchScreen.storyboard */,
 				A040B0D81F01BAB2001BE3E1 /* Info.plist */,
