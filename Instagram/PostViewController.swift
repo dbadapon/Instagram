@@ -44,6 +44,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
+        
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -110,6 +112,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = postTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         
+        let post = allPosts[indexPath.row] // consider using this instead
+        
         cell.postImage = allPosts[indexPath.row]
 
         let caption = (allPosts[indexPath.row]["caption"] ?? "") as! String
@@ -120,6 +124,15 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let user = allPosts[indexPath.row]["author"] as! PFUser
         cell.topUserLabel.text = user.username!
         cell.bottomUserLabel.text = cell.topUserLabel.text
+        
+        if let date = post.createdAt { // have to do the same with username :o
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .short
+            let dateString = dateFormatter.string(from: date)
+            cell.timestampLabel.text = dateString
+        }
+        
 
     
         return cell

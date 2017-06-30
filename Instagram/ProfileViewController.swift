@@ -28,12 +28,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         }
         print("Logged out!")
         
-//        NotificationCenter.default.post(name: Notification.Name(rawValue: notifyLogout), object: self)
-        
-//        PFUser.logOutInBackground { (error: Error?) in
-//            // logOutInBackgroundow be nil
-//            print("Logged out!")
-//        }
     }
     
     

@@ -18,6 +18,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var topUserLabel: UILabel!
     @IBOutlet weak var bottomUserLabel: UILabel!
     
+    @IBOutlet weak var timestampLabel: UILabel!
+    
     var postImage: PFObject! {
         didSet {
             let file = postImage["media"] as? PFFile
