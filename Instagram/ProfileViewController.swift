@@ -8,36 +8,49 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 let notifyLogout = "logoutUser"
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
-    @IBOutlet weak var profileCollectionView: UICollectionView!
+    
+    @IBOutlet weak var profilePicture: PFImageView!
     
     @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBOutlet weak var bioLabel: UILabel!
+    
+    var profileImage: PFObject! {
+        didSet {
+            let file = profileImage["image"] as? PFFile
+            self.profilePicture.file = file
+            self.profilePicture.loadInBackground()
+        }
+    }
+    
+    
+    @IBOutlet weak var profileCollectionView: UICollectionView!
+    
     var allPosts: [PFObject] = []
     
-    
-    @IBAction func logoutButton(_ sender: UIBarButtonItem) {
-        print("tapped logout button!")
-        PFUser.logOutInBackground { (error: Error?) in
-            // logOutInBackgroundow be nil
-            print("Logged out!")
-        }
-        print("Logged out!")
+    @IBAction func editProfileButton(_ sender: UIButton) {
         
     }
     
     
     
+    
+    @IBAction func logoutButton(_ sender: UIBarButtonItem) {
+        PFUser.logOutInBackground { (error: Error?) in
+            // logOutInBackgroundow be nil
+        }
+        
+    }
+    
 
     @IBAction func logoutTest(_ sender: UIButton) {
         print("tapped TEST logout button!")
-//        NotificationCenter.default.post(name: Notification.Name(rawValue: notifyLogout), object: self)
-        
-        // LMAO YOU DIDN'T EVEN NEED THE NOTIFICATION STUFF
     
         PFUser.logOutInBackground { (error: Error?) in
             // logOutInBackgroundow be nil
@@ -56,14 +69,19 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         profileCollectionView.insertSubview(refreshControl, at: 0)
         
+        
 
         if PFUser.current() != nil {
             usernameLabel.text = PFUser.current()?.username
             Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
+    
+            profileImage = PFUser.current()
+            
         } else
         {
             usernameLabel.text = ""
         }
+        
         
         
         
@@ -75,7 +93,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         let width = profileCollectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
         layout.itemSize = CGSize(width: width-1, height: width-1)
     }
-    
+
     
     func queryParse() {
         let query = PFQuery(className: "Post")
@@ -96,6 +114,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
             }
         }
     }
+    
+
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         queryParse()

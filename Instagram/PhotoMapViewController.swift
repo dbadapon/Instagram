@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import AVKit
 import AVFoundation
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -74,13 +73,12 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // Do something with the images (based on your use case)
         
-//        UIImageJPEGRepresentation(originalImage, 0.2)
+        postPhoto = resize(image: originalImage, newSize: CGSize(width: 500, height: 500))
     
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
-        photoImageView.image = resize(image: originalImage, newSize: CGSize(width: 500, height: 500))
-        
+        photoImageView.image = postPhoto
     }
 
     override func didReceiveMemoryWarning() {

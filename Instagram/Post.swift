@@ -27,6 +27,7 @@ class Post: NSObject {
         // Create Parse object PFObject
         let post = PFObject(className: "Post")
         
+        
         // Add relevant fields to the object
         post["media"] = getPFFFileFromImage(image: image) // PFFile column type
         post["author"] = PFUser.current() // Pointer column type that points to PFUser
@@ -34,8 +35,16 @@ class Post: NSObject {
         post["likesCount"] = 0
         post["commentsCount"] = 0
         
+        
         // Save object (following function will save the object in Parse asynchronously)
         post.saveInBackground(block: completion)
+    }
+    
+    class func updateUserInfo (image: UIImage?, withBio bio: String?, withCompletion completion: PFBooleanResultBlock?) {
+        let user = PFUser.current()!
+        user["image"] = getPFFFileFromImage(image: image)
+        user["bio"] = bio
+        user.saveInBackground(block: completion)
     }
     
     /**
