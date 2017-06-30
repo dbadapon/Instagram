@@ -23,6 +23,7 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         postTableView.dataSource = self
         postTableView.delegate = self
+
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)

@@ -9,22 +9,36 @@
 import UIKit
 import Parse
 
+let notifyLogout = "logoutUser"
+
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var profileCollectionView: UICollectionView!
+    
     @IBOutlet weak var usernameLabel: UILabel!
     
     var allPosts: [PFObject] = []
     
     
+    @IBAction func logoutButton(_ sender: UIBarButtonItem) {
+        print("tapped logout button!")
+        
+//        NotificationCenter.default.post(name: Notification.Name(rawValue: notifyLogout), object: self)
+        
+//        PFUser.logOutInBackground { (error: Error?) in
+//            // logOutInBackgroundow be nil
+//            print("Logged out!")
+//        }
+    }
+    
+    
     
 
-    @IBAction func logoutButton(_ sender: UIButton) {
-        PFUser.logOutInBackground { (error: Error?) in
-            // logOutInBackgroundow be nil
-        }
-        self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+    @IBAction func logoutTest(_ sender: UIButton) {
+        print("tapped TEST logout button!")
+        NotificationCenter.default.post(name: Notification.Name(rawValue: notifyLogout), object: self)
     }
+
     
     
 
@@ -32,10 +46,13 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         profileCollectionView.dataSource = self
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
-        
+
         if PFUser.current() != nil {
             usernameLabel.text = PFUser.current()?.username
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
+        } else
+        {
+            usernameLabel.text = ""
         }
         
         let layout = profileCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -77,8 +94,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         
         cell.profileImage = allPosts[indexPath.row]
         
-        
-        
 //        let post = allPosts[indexPath.item]
         
         
@@ -98,13 +113,14 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        let cell = sender as! UICollectionViewCell
-        if let indexPath = profileCollectionView.indexPath(for: cell) {
-            let post = allPosts[indexPath.row]
-            let detailViewController = segue.destination as! PostDetailsViewController
-            
-            detailViewController.post = post
-            
+        if segue.identifier == "detailSegue" {
+            let cell = sender as! UICollectionViewCell
+            if let indexPath = profileCollectionView.indexPath(for: cell) {
+                let post = allPosts[indexPath.row]
+                let detailViewController = segue.destination as! PostDetailsViewController
+                
+                detailViewController.post = post
+            }
         }
     }
 }

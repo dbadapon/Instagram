@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,42 +22,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoi-jh-8Tj">
-                                <rect key="frame" x="47" y="137" width="281" height="30"/>
+                                <rect key="frame" x="36" y="182" width="304" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhp-uS-qIB">
-                                <rect key="frame" x="73" y="285" width="228" height="30"/>
+                                <rect key="frame" x="36" y="285" width="304" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign In"/>
+                                <color key="backgroundColor" red="0.34630618055215395" green="0.61104246230524573" blue="0.93745952072538863" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="81S-YR-9J3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kim-Gf-EJv">
-                                <rect key="frame" x="73" y="356" width="228" height="30"/>
+                                <rect key="frame" x="226" y="620" width="55" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Up"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Sign Up."/>
                                 <connections>
                                     <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KEB-Pq-OKT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5r-52-v55">
-                                <rect key="frame" x="132" y="62" width="111" height="42"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GQa-JB-v1O">
+                                <rect key="frame" x="36" y="235" width="304" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PFf-XQ-qck">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.34506586194038391" green="0.61268699169158936" blue="0.9373052716255188" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1005210_gradient-wallpapers-1920-x-1080-by-ask-rachel-fox-on-deviantart_1024x576_h" translatesAutoresizingMaskIntoConstraints="NO" id="ygy-lf-49i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3g-mL-tIt">
+                                <rect key="frame" x="91" y="626" width="133" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GQa-JB-v1O">
-                                <rect key="frame" x="47" y="199" width="281" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -78,7 +92,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1153" y="-866"/>
+            <point key="canvasLocation" x="1152.8" y="-866.71664167916049"/>
         </scene>
         <!--Instagram-->
         <scene sceneID="i39-Ag-axx">
@@ -321,15 +335,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEP-GX-ru3">
-                                <rect key="frame" x="311" y="72" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutButton:" destination="14E-nc-7CC" eventType="touchUpInside" id="oXf-sF-MGp"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0S5-zn-axx">
                                 <rect key="frame" x="16" y="77" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -363,30 +368,48 @@
                                         </view>
                                         <connections>
                                             <outlet property="profileImageView" destination="MM8-7f-qXU" id="YFQ-bI-mqD"/>
-                                            <segue destination="31q-ge-V80" kind="show" id="fZt-Is-Oh7"/>
+                                            <segue destination="31q-ge-V80" kind="show" identifier="detailSegue" id="fZt-Is-Oh7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eW-8A-TBG">
+                                <rect key="frame" x="298" y="77" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutTest:" destination="14E-nc-7CC" eventType="touchUpInside" id="Wbs-LS-zNp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="f5M-yh-o6G"/>
+                    <navigationItem key="navigationItem" title="Profile" id="f5M-yh-o6G">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="aNO-Zc-fh2">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nX5-md-UVr">
+                                <rect key="frame" x="311" y="7" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                            </button>
+                            <connections>
+                                <action selector="logoutButton:" destination="14E-nc-7CC" id="rAx-gy-4m5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="profileCollectionView" destination="kum-Th-ezZ" id="pHu-N6-TbQ"/>
                         <outlet property="usernameLabel" destination="0S5-zn-axx" id="xa7-4A-BMO"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="s69-5X-sji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9a-Hc-2IC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="975"/>
+            <point key="canvasLocation" x="392.80000000000001" y="974.6626686656673"/>
         </scene>
         <!--Capture-->
         <scene sceneID="5Ka-lj-16S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="isJ-wH-tPt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Capture" id="WAk-Gq-96W"/>
+                    <tabBarItem key="tabBarItem" title="Capture" image="insta_camera_btn" selectedImage="insta_camera_btn" id="WAk-Gq-96W"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9np-rU-9JW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -405,7 +428,7 @@
         <scene sceneID="9Fp-gL-Txq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="463-s8-zLu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="dOt-Ti-M0S"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" selectedImage="profile_tab" id="dOt-Ti-M0S"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k7k-TK-msd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -424,7 +447,7 @@
         <scene sceneID="qdB-c7-6ki">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ezw-o2-rNG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="5M4-6a-UKg"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="feed_tab" selectedImage="feed_tab" id="5M4-6a-UKg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kRt-nk-Dba">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -440,6 +463,12 @@
             <point key="canvasLocation" x="-1737" y="975"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1005210_gradient-wallpapers-1920-x-1080-by-ask-rachel-fox-on-deviantart_1024x576_h" width="195" height="130"/>
+        <image name="feed_tab" width="25" height="25"/>
+        <image name="insta_camera_btn" width="25" height="25"/>
+        <image name="profile_tab" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fZt-Is-Oh7"/>
     </inferredMetricsTieBreakers>

@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.logout), name: Notification.Name(rawValue: notifyLogout), object: nil)
+        print("just set up this thing")
+        
         if let currentUser = PFUser.current() { // if the current user != nil + set currentUser to the current user
 //            print("Welcome back, \(currentUser.username!)")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -33,6 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    
+    func logout(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        window?.rootViewController = loginViewController
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
