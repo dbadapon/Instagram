@@ -58,6 +58,10 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         profileCollectionView.dataSource = self
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        profileCollectionView.insertSubview(refreshControl, at: 0)
+        
 
         if PFUser.current() != nil {
             usernameLabel.text = PFUser.current()?.username
@@ -66,6 +70,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         {
             usernameLabel.text = ""
         }
+        
+        
         
         let layout = profileCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
 //        layout.minimumInteritemSpacing = 1
@@ -84,6 +90,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
             query.whereKey("author", equalTo: PFUser.current())
         }
         
+        query.addDescendingOrder("createdAt")
         query.limit = 20
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts {
@@ -94,6 +101,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                 print(error!.localizedDescription)
             }
         }
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        queryParse()
+        refreshControl.endRefreshing()
     }
 
 

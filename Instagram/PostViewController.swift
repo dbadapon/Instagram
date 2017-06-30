@@ -9,13 +9,18 @@
 import UIKit
 import Parse
 
-class PostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
     
     @IBOutlet weak var postTableView: UITableView!
 
+    var isMoreDataLoading = false
+    var loadingMoreView:InfiniteScrollActivityView?
+    
     
     var allPosts: [PFObject] = []
+    
+    var postsToLoad = 20
     
 
 
@@ -23,23 +28,61 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         postTableView.dataSource = self
         postTableView.delegate = self
-
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         postTableView.insertSubview(refreshControl, at: 0)
         
+        let frame = CGRect(x: 0, y: postTableView.contentSize.height, width: postTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        postTableView.addSubview(loadingMoreView!)
+        
+        var insets = postTableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        postTableView.contentInset = insets
+
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
-        
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            let scrollViewContentHeight = postTableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - postTableView.bounds.size.height
+            
+            if (scrollView.contentOffset.y > scrollOffsetThreshold && postTableView.isDragging) {
+                
+                isMoreDataLoading = true
+                
+                let frame = CGRect(x: 0, y: postTableView.contentSize.height, width: postTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                
+                loadMoreData()
+            }
+        }
+    }
+    
+    func loadMoreData() {
+        if isMoreDataLoading {
+            self.isMoreDataLoading = false
+            
+            self.loadingMoreView!.stopAnimating()
+            
+            if allPosts.count >= postsToLoad {
+                postsToLoad += 20
+            }
+            queryParse()
+        }
+    }
     
     func queryParse() {
         let query = PFQuery(className: "Post")
         query.addDescendingOrder("createdAt")
         query.includeKey("author")
-        query.limit = 20
+        
+        query.limit = postsToLoad
         
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts {
@@ -56,6 +99,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         queryParse()
         refreshControl.endRefreshing()
     }
+    
+
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -44,7 +44,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         if photoImageView.image != nil {
             Post.postUserImage(image: photoImageView.image, withCaption: captionField.text, withCompletion: {(success, error) in
                 if success {
-                    print("I think you posted something?")
+//                    print("I think you posted something?")
                 }
                 else{
                     print(error?.localizedDescription)
@@ -92,10 +92,10 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            print("Camera is available!")
+//            print("Camera is available!")
             vc.sourceType = .camera
         } else {
-            print("Camera is not available, so we will use the photo library instead!")
+//            print("Camera is not available, so we will use the photo library instead!")
             vc.sourceType = .photoLibrary
         }
         

@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.logout), name: Notification.Name(rawValue: notifyLogout), object: nil)
-        print("just set up this thing")
+//        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.logout), name: Notification.Name(rawValue: notifyLogout), object: nil)
+//        print("just set up this thing")
         
         if let currentUser = PFUser.current() { // if the current user != nil + set currentUser to the current user
 //            print("Welcome back, \(currentUser.username!)")
@@ -38,11 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func logout(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
-        window?.rootViewController = loginViewController
-    }
+//    func logout(){
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let loginViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+//        window?.rootViewController = loginViewController
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
