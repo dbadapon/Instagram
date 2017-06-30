@@ -22,6 +22,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
     @IBAction func logoutButton(_ sender: UIBarButtonItem) {
         print("tapped logout button!")
+        PFUser.logOutInBackground { (error: Error?) in
+            // logOutInBackgroundow be nil
+            print("Logged out!")
+        }
+        print("Logged out!")
         
 //        NotificationCenter.default.post(name: Notification.Name(rawValue: notifyLogout), object: self)
         
@@ -36,7 +41,14 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
 
     @IBAction func logoutTest(_ sender: UIButton) {
         print("tapped TEST logout button!")
-        NotificationCenter.default.post(name: Notification.Name(rawValue: notifyLogout), object: self)
+//        NotificationCenter.default.post(name: Notification.Name(rawValue: notifyLogout), object: self)
+        
+        // LMAO YOU DIDN'T EVEN NEED THE NOTIFICATION STUFF
+    
+        PFUser.logOutInBackground { (error: Error?) in
+            // logOutInBackgroundow be nil
+            print("Logged out!")
+        }
     }
 
     
