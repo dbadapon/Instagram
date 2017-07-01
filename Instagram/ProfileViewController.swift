@@ -36,6 +36,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
     var allPosts: [PFObject] = []
     
+//    var postsToLoad = 20
+    
+    
     @IBAction func editProfileButton(_ sender: UIButton) {
         
     }
@@ -106,12 +109,13 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         }
         
         query.addDescendingOrder("createdAt")
-        query.limit = 20
+//        query.limit = 20
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts {
                 self.allPosts = posts
                 self.profileCollectionView.reloadData()
                 self.profileImage = PFUser.current()
+                self.bioLabel.text = PFUser.current()!["bio"] as! String
             }
             else {
                 print(error!.localizedDescription)

@@ -51,6 +51,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let user = PFUser.current()!
         print("just set user to current")
         
+        
         if newPhoto != nil {
             Post.updateUserInfo(image: newPhoto, withBio: bioField.text) { (success, error) in
                 if success {
@@ -59,10 +60,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 else {
                     print(error?.localizedDescription)
                 }
-        }
-            
+            }
             self.bioField.text = ""
             self.newPic.image = nil
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            user["bio"] = self.bioField.text
+            self.bioField.text = ""
             self.dismiss(animated: true, completion: nil)
         }
     }
