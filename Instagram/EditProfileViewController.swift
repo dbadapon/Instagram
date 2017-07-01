@@ -53,15 +53,29 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         
         if newPhoto != nil {
-            Post.updateUserInfo(image: newPhoto, withBio: bioField.text) { (success, error) in
-                if success {
-                    print("updated profile!")
+            let newBio = bioField.text
+            if newBio != ""
+            {
+                Post.updateUserInfo(image: newPhoto, withBio: bioField.text) { (success, error) in
+                    if success {
+                        print("updated profile!")
+                    }
+                    else {
+                        print(error?.localizedDescription)
+                    }
                 }
-                else {
-                    print(error?.localizedDescription)
+                self.bioField.text = ""
+            } else {
+                let originalBio = user["bio"] as! String
+                Post.updateUserInfo(image: newPhoto, withBio: originalBio) { (success, error) in
+                    if success {
+                    }
+                    else {
+                        print(error?.localizedDescription)
+                    }
                 }
             }
-            self.bioField.text = ""
+
             self.newPic.image = nil
             self.dismiss(animated: true, completion: nil)
         } else {
