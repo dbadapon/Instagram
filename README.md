@@ -2,33 +2,37 @@
 
 **Instagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **30** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication
-- [ ] User can log in and log out of his or her account
-- [ ] The current signed in user is persisted across app restarts
-- [ ] User can take a photo, add a caption, and post it to "Instagram"
-- [ ] User can view the last 20 posts submitted to "Instagram"
-- [ ] User can pull to refresh the last 20 posts submitted to "Instagram"
-- [ ] User can load more posts once he or she reaches the bottom of the feed using infinite Scrolling
-- [ ] User can tap a post to view post details, including timestamp and creation
-- [ ] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user.
+- [x] User can sign up to create a new account using Parse authentication
+- [x] User can log in and log out of his or her account
+- [x] The current signed in user is persisted across app restarts
+- [x] User can take a photo, add a caption, and post it to "Instagram"
+- [x] User can view the last 20 posts submitted to "Instagram"
+- [x] User can pull to refresh the last 20 posts submitted to "Instagram"
+- [x] User can tap a post to view post details, including timestamp and caption.
 
 The following **optional** features are implemented:
 
-- [ ] Show the username and creation time for each post
-- [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse.
-- [ ] User Profiles:
-- [ ] Allow the logged in user to add a profile photo
-- [ ] Display the profile photo with each post
+- [x] Style the login page to look like the real Instagram login page.
+- [x] Style the feed to look like the real Instagram feed.
+- [x] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs - [ ] for Home Feed and Profile
+- [ ] Add a custom camera using the CameraManager library.
+- [x] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
+- [x] Show the username and creation time for each post
+Hint: If you use TableView Section Headers to display the the username and creation time, you'll get "sticky headers" - [ ] similar to the actual Instagram app.
+- [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
+- User Profiles:
+- [x] Allow the logged in user to add a profile photo
+- [x] Display the profile photo with each post
 - [ ] Tapping on a post's username or profile photo goes to that user's profile page
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [ ] User can like a post and see number of likes for each post in the post details screen.
-- [ ] Run your app on your phone and use the camera to take the photo
+- [x] Run your app on your phone and use the camera to take the photo
 
 
 The following **additional** features are implemented:
@@ -37,8 +41,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I wasn't able to get to the "likes" functionality, but I'd like to work on it in the future and talk about it with the people with around me since it seemed like many of my peers were struggling with it.
+2. I want to talk about how to implement the comments feature!
 
 ## Video Walkthrough
 
@@ -58,10 +62,12 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 ## Notes
 
 Describe any challenges encountered while building the app.
+I'm still a little shaky on getting a default profile image to show up on the news feed if a user hasn't set one.
+Initially I had spent a good amount of time trying to deal with the tab bar and general navigation, but the discussion on navigation really helped me understand it all much more clearly.
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright [2017] [Dominique Adapon]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
