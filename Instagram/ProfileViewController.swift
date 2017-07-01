@@ -44,11 +44,10 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
 
     @IBAction func logoutTest(_ sender: UIButton) {
-        print("tapped TEST logout button!")
     
         PFUser.logOutInBackground { (error: Error?) in
             // logOutInBackgroundow be nil
-            print("Logged out!")
+    
         }
     }
 
