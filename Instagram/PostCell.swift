@@ -32,9 +32,11 @@ class PostCell: UITableViewCell {
     
     var profileImage: PFObject! {
         didSet {
-            let file = profileImage["image"] as? PFFile
-            self.profileImageView.file = file
-            self.profileImageView.loadInBackground()
+            if profileImage["image"] != nil {
+                let file = profileImage["image"] as? PFFile
+                self.profileImageView.file = file
+                self.profileImageView.loadInBackground()
+            }
         }
     }
 
