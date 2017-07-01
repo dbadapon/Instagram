@@ -125,6 +125,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.topUserLabel.text = user.username!
         cell.bottomUserLabel.text = cell.topUserLabel.text
         
+        cell.profileImage = post["author"] as! PFUser
+        
         if let date = post.createdAt { // have to do the same with username :o
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .medium
@@ -137,6 +139,8 @@ class PostViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
         return cell
     }
+    
+    
     
     
     

@@ -143,9 +143,10 @@
                                                     <color key="textColor" red="0.52505667099999997" green="0.52505667099999997" blue="0.52505667099999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pu7-8l-7ia">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pu7-8l-7ia" customClass="PFImageView">
                                                     <rect key="frame" x="8" y="8" width="45" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjx-kL-ukp">
                                                     <rect key="frame" x="61" y="20" width="101" height="21"/>
@@ -160,6 +161,7 @@
                                             <outlet property="bottomUserLabel" destination="qQD-8K-PUS" id="XkK-oX-pau"/>
                                             <outlet property="captionLabel" destination="fIk-xu-Mj2" id="5gN-qp-RxW"/>
                                             <outlet property="postImageView" destination="ANr-JH-hVS" id="ChX-c9-oLl"/>
+                                            <outlet property="profileImageView" destination="Pu7-8l-7ia" id="apc-d1-Cpm"/>
                                             <outlet property="timestampLabel" destination="jxa-8a-m8n" id="NcY-E9-69V"/>
                                             <outlet property="topUserLabel" destination="Vjx-kL-ukp" id="ldM-Xy-wG1"/>
                                             <segue destination="31q-ge-V80" kind="show" id="fbu-YJ-k14"/>

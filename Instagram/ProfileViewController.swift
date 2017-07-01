@@ -69,7 +69,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         profileCollectionView.insertSubview(refreshControl, at: 0)
         
-        
 
         if PFUser.current() != nil {
             usernameLabel.text = PFUser.current()?.username
@@ -108,11 +107,18 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
             if let posts = posts {
                 self.allPosts = posts
                 self.profileCollectionView.reloadData()
+                self.profileImage = PFUser.current()
             }
             else {
                 print(error!.localizedDescription)
             }
         }
+    }
+    
+    
+    func refreshProfile() {
+        let query = PFQuery(className: "_User")
+        query.findObjectsInBackground()
     }
     
 

@@ -27,6 +27,17 @@ class PostCell: UITableViewCell {
             self.postImageView.loadInBackground()
         }
     }
+   
+    @IBOutlet weak var profileImageView: PFImageView!
+    
+    var profileImage: PFObject! {
+        didSet {
+            let file = profileImage["image"] as? PFFile
+            self.profileImageView.file = file
+            self.profileImageView.loadInBackground()
+        }
+    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
