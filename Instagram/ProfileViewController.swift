@@ -76,9 +76,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
             }
             
             if let bio = user["bio"] {
+                print("bio is \(bio)")
                 bioLabel.text = bio as! String
             }
             else {
+                print("bio should be empty string...")
                 bioLabel.text = ""
             }
 

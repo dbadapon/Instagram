@@ -49,11 +49,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func updateButton(_ sender: UIButton) {
         let user = PFUser.current()!
-        print("just set user to current")
+//        print("just set user to current")
         
-        
+        let newBio = bioField.text
         if newPhoto != nil {
-            let newBio = bioField.text
+//            print("bioField text is: \(bioField.text)")
             if newBio != ""
             {
                 Post.updateUserInfo(image: newPhoto, withBio: bioField.text) { (success, error) in
@@ -66,6 +66,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 }
                 self.bioField.text = ""
             } else {
+                print("keeping original bio")
                 let originalBio = user["bio"] as! String
                 Post.updateUserInfo(image: newPhoto, withBio: originalBio) { (success, error) in
                     if success {
@@ -79,7 +80,18 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.newPic.image = nil
             self.dismiss(animated: true, completion: nil)
         } else {
-            user["bio"] = self.bioField.text
+            if newBio != ""
+            {
+                print("photo is nil but bio changed!") // get image from profile and set it
+                Post.updateUserInfo(image: currentProfilePic.image, withBio: bioField.text) { (success, error) in
+                    if success {
+                        print("updated profile!")
+                    }
+                    else {
+                        print(error?.localizedDescription)
+                    }
+            }
+            }
             self.bioField.text = ""
             self.dismiss(animated: true, completion: nil)
         }
@@ -154,3 +166,4 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     */
 
 }
+
