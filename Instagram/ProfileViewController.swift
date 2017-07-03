@@ -71,16 +71,15 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
             usernameLabel.text = user.username
             Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryParse), userInfo: nil, repeats: true)
     
-            if user["image"] != nil {
+            if user["image"] != nil { // you should really put this stuff into a funciton or something...
                 profileImage = user
             }
             
             if let bio = user["bio"] {
-                print("bio is \(bio)")
                 bioLabel.text = bio as! String
             }
             else {
-                print("bio should be empty string...")
+//                print("bio should be empty string...")
                 bioLabel.text = ""
             }
 
@@ -114,10 +113,27 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
 //        query.limit = 20
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts {
+            
+                
                 self.allPosts = posts
                 self.profileCollectionView.reloadData()
-                self.profileImage = PFUser.current()
-                self.bioLabel.text = PFUser.current()!["bio"] as! String
+                
+                if let user = PFUser.current() {
+                    if user["image"] != nil {
+                        self.profileImage = user
+                    }
+                    if let bio = user["bio"] {
+                        //                    print("bio is \(bio)")
+                        self.bioLabel.text = bio as! String
+                    }
+                    else {
+//                        print("bio should be empty string...")
+                        self.bioLabel.text = ""
+                    }
+                }
+
+//                print("current bio: \(PFUser.current()!["bio"])"
+//                self.bioLabel.text = PFUser.current()!["bio"] as! String
             }
             else {
                 print(error!.localizedDescription)

@@ -32,6 +32,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     
 
     @IBAction func cameraButton(_ sender: UIButton) {
+        // you have to account for the case in which the camera is not available!!
         takePhoto()
     }
     
